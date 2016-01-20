@@ -1,3 +1,11 @@
+# build
+/target
+
+# idea files
+*.iml
+/.idea
+
+# node support files
 /src/main/qx/basic/build
 /node
 /node_modules
