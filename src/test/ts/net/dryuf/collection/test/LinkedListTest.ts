@@ -1,5 +1,5 @@
 /// <reference path="../../../../../../../node_modules/rx/ts/rx.d.ts" />
-import rx = require("rx");
+import LinkedList from '../../../../../../main/ts/net/dryuf/collection/LinkedList';
 
 module net.dryuf.collection.test {
 
