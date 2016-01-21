@@ -1,3 +1,6 @@
+/// <reference path="../../../../../../../node_modules/rx/ts/rx.d.ts" />
+import rx = require("rx");
+
 module net.dryuf.collection.test {
 
 

@@ -30,6 +30,7 @@
   "devDependencies": {
     "grunt-contrib-jasmine": "^1.0.0",
     "grunt-jasmine": "^0.1.0",
+    "jasmine-core": "2.4.1",
     "karma-chrome-launcher": "^0.2.2",
     "karma-firefox-launcher": "^0.1.7",
     "karma-jasmine": "^0.1.6"

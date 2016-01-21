@@ -18,8 +18,10 @@ module.exports = function(grunt) {
 				dest: 'target/tsjs/',
 				options: {
 					module: 'amd', //or commonjs 
-					target: 'es5', //or es3 
-					basePath: 'src/main/ts',
+					target: 'es5',
+					keepDirectoryHierarchy: true,
+					rootDir: 'src/main/ts',
+					outDir: "target/tsjs/",
 					sourceMap: true,
 					declaration: true
 				}
@@ -32,8 +34,8 @@ module.exports = function(grunt) {
 				dest: 'target/tsjs/',
 				options: {
 					baseDir: 'src/main/ts/',
-					outDir: "target/tsjs/",
 					rootDir: "src/main/ts/",
+					outDir: "target/tsjs/",
 					module: 'amd',
 					target: 'es5',
 					sourceMap: true,
