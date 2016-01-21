@@ -9,7 +9,7 @@ export class LinkedListIterator<E> implements ListIterator<E>
 		this.position = position;
 	}
 
-	add(item: E): void
+	public add(item: E): void
 	{
 		this.list.addBeforeNode(this.position, new LinkedListNode<E>(item));
 	}
@@ -80,7 +80,7 @@ export class LinkedListNode<E>
 	public value: E;
 }
 
-export abstract class LinkedList<E> extends AbstractList<E>
+export class LinkedList<E> extends AbstractList<E>
 {
 	public add(item: E): boolean
 	{
@@ -100,7 +100,7 @@ export abstract class LinkedList<E> extends AbstractList<E>
 
 	public listIterator(): ListIterator<E>
 	{
-		return new LinkedListIterator(this, this.first);
+		return new LinkedListIterator(this, this.linkedHead);
 	}
 
 	public listIteratorIndexed(index: number): ListIterator<E>
@@ -113,9 +113,14 @@ export abstract class LinkedList<E> extends AbstractList<E>
 		return this.removeNode(this.nodeAt(index));
 	}
 
+	public size(): number
+	{
+		return this.itemCount;
+	}
+
 	public nodeAt(index: number): LinkedListNode<E>
 	{
-		for (var current: LinkedListNode<E> = this.first; --index >= 0; ) {
+		for (var current: LinkedListNode<E> = this.linkedHead; --index >= 0; ) {
 			current = current.next;
 		}
 		return current;
@@ -124,7 +129,7 @@ export abstract class LinkedList<E> extends AbstractList<E>
 	public nodeIndex(node: LinkedListNode<E>): number
 	{
 		var index: number = 0;
-		for (var current: LinkedListNode<E> = this.first; node != current; node = node.next) {
+		for (var current: LinkedListNode<E> = this.linkedHead; node != current; node = node.next) {
 			++index;
 		}
 		return index;
@@ -133,17 +138,18 @@ export abstract class LinkedList<E> extends AbstractList<E>
 	public removeNode(node: LinkedListNode<E>): E
 	{
 		if (node.previous == null) {
-			this.first = node.next;
+			this.linkedHead = node.next;
 		}
 		else {
 			node.previous.next = node.next;
 		}
 		if (node.next == null) {
-			this.last = node.previous;
+			this.linkedLast = node.previous;
 		}
 		else {
 			node.next.previous = node.previous;
 		}
+		--this.itemCount;
 		return node.value;
 	}
 
@@ -154,19 +160,22 @@ export abstract class LinkedList<E> extends AbstractList<E>
 				adding.previous.next = adding;
 			}
 			else {
-				this.first = adding;
+				this.linkedHead = adding;
 			}
 		}
 		else {
-			this.last = adding;
-			if (this.first == null)
-				this.first = adding;
+			this.linkedLast = adding;
+			if (this.linkedHead == null)
+				this.linkedHead = adding;
 		}
+		++this.itemCount;
 	}
 
-	protected first: LinkedListNode<E> = null;
+	protected itemCount: number = 0;
 
-	protected last: LinkedListNode<E> = null;
+	protected linkedHead: LinkedListNode<E> = null;
+
+	protected linkedLast: LinkedListNode<E> = null;
 }
 
 
