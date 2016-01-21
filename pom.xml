@@ -105,18 +105,6 @@
 				<executions>
 
 					<!--
-					       Maven "validate" phase: Prepare everything that is required to run grunt
-					-->
-					<execution>
-						<id>validate</id>
-						<phase>validate</phase>
-						<goals>
-							<!--<goal>create-resources</goal>-->
-							<goal>npm</goal><!-- setup grunt and plugin -->
-						</goals>
-					</execution>
-
-					<!--
 					       Maven "compile" phase: Do the real stuff by running grunt with target "compile"
 					-->
 					<execution>
@@ -251,6 +239,18 @@
 								<configuration>
 									<arguments>install</arguments>
 								</configuration>
+							</execution>
+
+							<!--
+							       Maven "validate" phase: Prepare everything that is required to run grunt
+							-->
+							<execution>
+								<id>validate</id>
+								<phase>validate</phase>
+								<goals>
+									<!--<goal>create-resources</goal>-->
+									<goal>npm</goal><!-- setup grunt and plugin -->
+								</goals>
 							</execution>
 
 							<execution>
