@@ -1,3 +1,6 @@
+/// <reference path="AbstractCollection.ts"/>
+/// <reference path="List.ts"/>
+
 module net.dryuf.collection {
 
 
@@ -59,58 +62,6 @@ export class BackListIterator<E> implements ListIterator<E>
 	protected index: number;
 }
 
-export class AbstractSubList<E> extends AbstractList<E>
-{
-	public constructor(list: AbstractList<E>, from: number, end: number)
-	{
-		super();
-		this.list = list;
-		this.from = from;
-		this.end = end;
-	}
-
-	public add(item: E): boolean
-	{
-		this.list.addIndexed(this.end, item);
-		return true;
-	}
-
-	public get(index: number): E
-	{
-		return this.list.get(this.from+index);
-	}
-
-	public iterator(): Iterator<E>
-	{
-		return new BackListIterator<E>(this, 0);
-	}
-
-	public listIterator(): ListIterator<E>
-	{
-		return new BackListIterator<E>(this, 0);
-	}
-
-	public listIteratorIndexed(index: number): ListIterator<E>
-	{
-		return new BackListIterator<E>(this, index);
-	}
-
-	public set(index: number, item: E): E
-	{
-		return this.list.set(this.from+index, item);
-	}
-
-	public size(): number
-	{
-		return this.end-this.from;
-	}
-
-	protected from: number;
-
-	protected end: number;
-
-	protected list: AbstractList<E>;
-}
 
 export abstract class AbstractList<E> extends AbstractCollection<E> implements List<E>
 {
@@ -183,6 +134,60 @@ export abstract class AbstractList<E> extends AbstractCollection<E> implements L
 	{
 		return new AbstractSubList(this, from, end);
 	}
+}
+
+
+export class AbstractSubList<E> extends AbstractList<E>
+{
+	public constructor(list: AbstractList<E>, from: number, end: number)
+	{
+		super();
+		this.list = list;
+		this.from = from;
+		this.end = end;
+	}
+
+	public add(item: E): boolean
+	{
+		this.list.addIndexed(this.end, item);
+		return true;
+	}
+
+	public get(index: number): E
+	{
+		return this.list.get(this.from+index);
+	}
+
+	public iterator(): Iterator<E>
+	{
+		return new BackListIterator<E>(this, 0);
+	}
+
+	public listIterator(): ListIterator<E>
+	{
+		return new BackListIterator<E>(this, 0);
+	}
+
+	public listIteratorIndexed(index: number): ListIterator<E>
+	{
+		return new BackListIterator<E>(this, index);
+	}
+
+	public set(index: number, item: E): E
+	{
+		return this.list.set(this.from+index, item);
+	}
+
+	public size(): number
+	{
+		return this.end-this.from;
+	}
+
+	protected from: number;
+
+	protected end: number;
+
+	protected list: AbstractList<E>;
 }
 
 

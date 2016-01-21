@@ -1,3 +1,5 @@
+/// <reference path="AbstractMap.ts"/>
+
 module net.dryuf.collection {
 
 

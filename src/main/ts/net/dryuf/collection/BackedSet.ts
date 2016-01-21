@@ -1,7 +1,9 @@
+/// <reference path="AbstractSet.ts"/>
+
 module net.dryuf.collection {
 
 
-export class BackedSet<E> extends AbstractSet<E> implements Set<E>
+export class BackedSet<E> extends AbstractSet<E>
 {
 	public constructor(backingMap: Map<E, Boolean>)
 	{

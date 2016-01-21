@@ -1,3 +1,5 @@
+/// <reference path="AbstractIterable.ts"/>
+
 module net.dryuf.collection {
 
 

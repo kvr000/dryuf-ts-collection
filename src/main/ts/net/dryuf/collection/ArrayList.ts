@@ -1,3 +1,5 @@
+/// <reference path="AbstractList.ts"/>
+
 module net.dryuf.collection {
 
 

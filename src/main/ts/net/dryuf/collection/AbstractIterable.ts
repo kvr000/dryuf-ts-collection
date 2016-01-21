@@ -1,3 +1,5 @@
+/// <reference path="Iterable.ts"/>
+
 module net.dryuf.collection {
 
 

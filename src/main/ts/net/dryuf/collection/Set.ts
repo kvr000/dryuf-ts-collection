@@ -1,3 +1,5 @@
+/// <reference path="Collection.ts"/>
+
 module net.dryuf.collection {
 
 

@@ -1,3 +1,5 @@
+/// <reference path="HashMap.ts"/>
+
 module net.dryuf.collection {
 
 

@@ -1,4 +1,4 @@
-/// <reference path="../../../../../../../node_modules/rx/ts/rx.d.ts" />
+/// <reference path="../../../../../../main/ts/net/dryuf/collection/LinkedList.ts" />
 import LinkedList from '../../../../../../main/ts/net/dryuf/collection/LinkedList';
 
 module net.dryuf.collection.test {

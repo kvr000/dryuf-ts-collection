@@ -1,3 +1,5 @@
+/// <reference path="AbstractList.ts"/>
+
 module net.dryuf.collection {
 
 
@@ -66,6 +68,7 @@ export class LinkedListIterator<E> implements ListIterator<E>
 	protected position: LinkedListNode<E>;
 }
 
+
 export class LinkedListNode<E>
 {
 	public constructor(value: E)
@@ -79,6 +82,7 @@ export class LinkedListNode<E>
 
 	public value: E;
 }
+
 
 export class LinkedList<E> extends AbstractList<E>
 {

@@ -1,7 +1,9 @@
+/// <reference path="BackedSet.ts"/>
+
 module net.dryuf.collection {
 
 
-export class HashSet<E> extends BackedSet<E> implements Set<E>
+export class HashSet<E> extends BackedSet<E>
 {
 	public constructor()
 	{

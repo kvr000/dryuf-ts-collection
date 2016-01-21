@@ -1,3 +1,8 @@
+/// <reference path="Iterator.ts"/>
+/// <reference path="AbstractSet.ts"/>
+/// <reference path="AbstractCollection.ts"/>
+/// <reference path="Map.ts"/>
+
 module net.dryuf.collection {
 
 
@@ -106,7 +111,7 @@ export class AbstractMapValuesIterator<K, V> implements Iterator<V>
 }
 
 
-	export class AbstractMapValues<K, V> extends AbstractCollection<V>
+export class AbstractMapValues<K, V> extends AbstractCollection<V>
 {
 	public constructor(map: AbstractMap<K, V>)
 	{
