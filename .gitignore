@@ -14,5 +14,5 @@
 /bower_components
 /.tscache
 /**/.baseDir.ts
-/src/main/ts/**/*.js
-/src/main/ts/**/*.js.map
+/src/*/ts/**/*.js
+/src/*/ts/**/*.js.map
