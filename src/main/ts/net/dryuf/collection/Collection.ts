@@ -23,9 +23,13 @@ export interface Collection<E> extends Iterable<E>
 
 	removeAll(elements: Collection<E>): boolean;
 
+	removeIf(predicate: (item: E) => boolean): boolean;
+
 	retainAll(elements: Collection<E>): boolean;
 
 	size(): number;
+
+	sort(comparator: (v0: E, v1: E) => number): void;
 
 	toArray(): E[];
 
